@@ -1,14 +1,17 @@
 buildscript {
     ext.kotlinGradlePluginVersion = "1.1.4-3"
     ext.junitPlatformGradlePluginVersion = "1.0.0-RC3"
+    ext.dokkaGradlePluginVersion = "0.9.15"
 
     repositories {
         mavenCentral()
+        jcenter()
     }
 
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinGradlePluginVersion"
         classpath "org.junit.platform:junit-platform-gradle-plugin:$junitPlatformGradlePluginVersion"
+        classpath "org.jetbrains.dokka:dokka-gradle-plugin:$dokkaGradlePluginVersion"
     }
 }
 
@@ -22,6 +25,13 @@ junitPlatform {
             include "spek"
         }
     }
+}
+
+apply plugin: "org.jetbrains.dokka"
+
+dokka {
+    outputFormat = "html"
+    outputDirectory = "$buildDir/doc"
 }
 
 apply plugin: "application"
