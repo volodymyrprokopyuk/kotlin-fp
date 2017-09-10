@@ -1,7 +1,7 @@
 package org.vld.sfpp.ch01
 
 /**
- * Calculate letter frequency for a string [str]
+ * Calculates letter frequency for a string [str]
  */
 fun letterFrequency(str: String) = str
         .filter(Char::isLetter)
