@@ -1,0 +1,52 @@
+buildscript {
+    ext.kotlinGradlePluginVersion = "1.1.4-3"
+    ext.junitPlatformGradlePluginVersion = "1.0.0-RC3"
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinGradlePluginVersion"
+        classpath "org.junit.platform:junit-platform-gradle-plugin:$junitPlatformGradlePluginVersion"
+    }
+}
+
+apply plugin: "kotlin"
+
+apply plugin: "org.junit.platform.gradle.plugin"
+
+junitPlatform {
+    filters {
+        engines {
+            include "spek"
+        }
+    }
+}
+
+apply plugin: "application"
+
+mainClassName = "org.vld.sfpp.ch01.MainKt"
+
+ext {
+    kotlinVersion = "1.1.4-3"
+
+    spekVersion = "1.1.4"
+    hamkrestVersion = "1.4.2.0"
+    mockitoKotlinVersion = "1.5.0"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+
+    testCompile "org.jetbrains.spek:spek-api:$spekVersion"
+    testCompile "com.natpryce:hamkrest:$hamkrestVersion"
+    testCompile "com.nhaarman:mockito-kotlin:$mockitoKotlinVersion"
+
+    testRuntime "org.jetbrains.spek:spek-junit-platform-engine:$spekVersion"
+}
