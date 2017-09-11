@@ -22,7 +22,7 @@ object MainSpek : Spek({
 
     given("an empty string") {
         val str = ""
-        on("calling letterFrequence on the empty string") {
+        on("calling letterFrequency on the empty string") {
             val frequency = letterFrequency(str)
             it("should return empty frequency map") {
                 val expectedFrequency = emptyMap<Char, Int>()
