@@ -10,9 +10,9 @@ import org.jetbrains.spek.api.dsl.on
 object MainSpek : Spek({
 
     given("a string with letters and other symbols") {
-        val str = "hello world!"
+        val string = "hello world!"
         on("calling letterFrequency on the string") {
-            val frequency = letterFrequency(str)
+            val frequency = letterFrequency(string)
             it("should return correct letter frequency for the string") {
                 val expectedFrequency = mapOf('h' to 1, 'e' to 1, 'l' to 3, 'o' to 2, 'w' to 1, 'r' to 1, 'd' to 1)
                 assertThat(frequency, equalTo(expectedFrequency))
@@ -21,9 +21,9 @@ object MainSpek : Spek({
     }
 
     given("an empty string") {
-        val str = ""
+        val string = ""
         on("calling letterFrequency on the empty string") {
-            val frequency = letterFrequency(str)
+            val frequency = letterFrequency(string)
             it("should return empty frequency map") {
                 val expectedFrequency = emptyMap<Char, Int>()
                 assertThat(frequency, equalTo(expectedFrequency))
