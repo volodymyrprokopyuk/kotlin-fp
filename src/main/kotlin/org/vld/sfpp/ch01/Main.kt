@@ -13,22 +13,29 @@ fun letterFrequency(string: String): Map<Char, Int> = string
  * Given a sorted list of numbers [sortedNumbers], calculates continuous groups of numbers,
  * where each number in a group is higher by one than its predecessor
  */
-fun groupContinuousNumbers(sortedNumbers: List<Int>): List<List<Int>> =
+fun groupContinuousNumbers(
+        sortedNumbers: List<Int>,
+        areContinuous: (lastNumber: Int, number: Int) -> Boolean = { lastNumber, number -> number - lastNumber == 1 }):
+        List<List<Int>> =
         // create list with first empty number group
         sortedNumbers.fold(listOf(emptyList()), { groups, number ->
             val lastGroup = groups.last()
             val initGroups = groups.dropLast(1)
             when {
-                // add first number to the first empty number group
+            // add first number to the first empty number group
                 lastGroup.isEmpty() -> initGroups + listOf(lastGroup + number)
                 else -> {
                     val lastNumber = lastGroup.last()
-                    when (number) {
-                        // add next continuous number to the current number group
+                    // add next continuous number to the current number group
+                    if (areContinuous(lastNumber, number)) initGroups + listOf(lastGroup + number)
+                    // create new group of continuous numbers
+                    else groups + listOf(listOf(number))
+                    /*when (number) {
+                    // add next continuous number to the current number group
                         lastNumber + 1 -> initGroups + listOf(lastGroup + number)
-                        // create new group of continuous numbers
+                    // create new group of continuous numbers
                         else -> groups + listOf(listOf(number))
-                    }
+                    }*/
                 }
             }
         })
