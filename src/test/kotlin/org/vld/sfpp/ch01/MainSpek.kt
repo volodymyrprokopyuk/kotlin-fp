@@ -42,6 +42,17 @@ object MainSpek : Spek({
         }
     }
 
+    given("a list of sorted numbers") {
+        val sortedNumbers = listOf(1, 2, 3, 5, 7, 10, 12, 14, 17)
+        on("call groupContinuousNumbers on the sorted numbers with a predicate") {
+            val groups = groupContinuousNumbers(sortedNumbers) { lastNumber, number -> number - lastNumber == 2 }
+            it("should return a list of groups of continuous numbers as defined by the predicate") {
+                val expectedGroups = listOf(listOf(1, 2, 3, 5, 7), listOf(10, 12, 14), listOf(17))
+                assertThat(groups, equalTo(expectedGroups))
+            }
+        }
+    }
+
     given("an empty list of sorted numbers") {
         val sortedNumbers = emptyList<Int>()
         on("call groupContinuousNumbers ib the empty list of sorted numbers") {
