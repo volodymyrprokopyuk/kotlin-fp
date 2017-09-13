@@ -36,7 +36,7 @@ dokka {
 
 apply plugin: "application"
 
-mainClassName = "org.vld.sfpp.ch01.MainKt"
+mainClassName = "org.vld.sfpp.ch02.MainKt"
 
 ext {
     kotlinVersion = "1.1.4-3"
