@@ -64,4 +64,28 @@ object MainSpek : Spek({
         }
     }
 
+    given("two not empty lists of the same or different size") {
+        val list1 = listOf(1, 2, 3, 4)
+        val list2 = listOf(10, 20, 30)
+        on("call applyBinaryOperationOverTwoLists on the two lists and a binary operation") {
+            val result = applyBinaryOperationOverTwoLists(list1, list2, Int::plus)
+            it("should return a list of the binary operation application results") {
+                val expectedResult = listOf(11, 22, 33)
+                assertThat(result, equalTo(expectedResult))
+            }
+        }
+    }
+
+    given("two empty lists") {
+        val list1 = emptyList<Int>()
+        val list2 = emptyList<Int>()
+        on("call applyBinaryOperationOverTwoLists on the two lists and a binary operation") {
+            val result = applyBinaryOperationOverTwoLists(list1, list2, Int::plus)
+            it("should return an empty list") {
+                val expectedResult = emptyList<Int>()
+                assertThat(result, equalTo(expectedResult))
+            }
+        }
+    }
+
 })

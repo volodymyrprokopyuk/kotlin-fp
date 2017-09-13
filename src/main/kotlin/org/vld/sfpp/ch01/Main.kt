@@ -32,8 +32,19 @@ fun groupContinuousNumbers(
             }
         })
 
+/**
+ * Given two lists [list1] and [list2] of items of the same size, maps the items from both lists
+ * over a binary [binaryOperation] and returns a list of the binary operation results
+ */
+fun <T1, T2, R> applyBinaryOperationOverTwoLists(
+        list1: List<T1>,
+        list2: List<T2>,
+        binaryOperation: (left: T1, right: T2) -> R
+): List<R> = list1.zip(list2).map { pair -> binaryOperation(pair.first, pair.second) }
+
 fun main(args: Array<String>) {
-    val numbers = listOf(1, 2, 3, 5, 6, 8, 10, 11)
-    val res = groupContinuousNumbers(numbers)
+    val list1 = listOf(1, 2, 3, 4)
+    val list2 = listOf(10, 20, 30)
+    val res = applyBinaryOperationOverTwoLists(list1, list2, Int::plus)
     println(res)
 }
