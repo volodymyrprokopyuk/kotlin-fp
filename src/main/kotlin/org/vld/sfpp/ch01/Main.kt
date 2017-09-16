@@ -1,7 +1,7 @@
 package org.vld.sfpp.ch01
 
 /**
- * Calculates letter frequency for a string [str] with letters and other symbols
+ * Calculates letter frequency for a string [string] with letters and other symbols
  */
 fun letterFrequency(string: String): Map<Char, Int> = string
         .filter(Char::isLetter)
@@ -18,7 +18,7 @@ fun groupContinuousNumbers(
         areContinuous: (lastNumber: Int, number: Int) -> Boolean = { lastNumber, number -> number - lastNumber == 1 }
 ): List<List<Int>> =
         // create a list with first empty number group
-        sortedNumbers.fold(listOf(emptyList()), { groups, number ->
+        sortedNumbers.fold(listOf(listOf()), { groups, number ->
             val lastGroup = groups.last()
             val initGroups = groups.dropLast(1)
             // add first number to the first empty number group
@@ -40,7 +40,7 @@ fun <T1, T2, R> applyBinaryOperationOverTwoLists(
         list1: List<T1>,
         list2: List<T2>,
         binaryOperation: (left: T1, right: T2) -> R
-): List<R> = list1.zip(list2).map { pair -> binaryOperation(pair.first, pair.second) }
+): List<R> = list1.zip(list2).map { (left, right) -> binaryOperation(left, right) }
 
 fun main(args: Array<String>) {
     val list1 = listOf(1, 2, 3, 4)

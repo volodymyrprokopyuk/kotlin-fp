@@ -25,7 +25,7 @@ object MainSpek : Spek({
         on("call letterFrequency on the empty string") {
             val frequency = letterFrequency(string)
             it("should return empty frequency map") {
-                val expectedFrequency = emptyMap<Char, Int>()
+                val expectedFrequency = mapOf<Char, Int>()
                 assertThat(frequency, equalTo(expectedFrequency))
             }
         }
@@ -54,11 +54,11 @@ object MainSpek : Spek({
     }
 
     given("an empty list of sorted numbers") {
-        val sortedNumbers = emptyList<Int>()
+        val sortedNumbers = listOf<Int>()
         on("call groupContinuousNumbers ib the empty list of sorted numbers") {
             val groups = groupContinuousNumbers(sortedNumbers)
             it("shoudl return an empty list of groups of continuous numbers") {
-                val expectedGroups = listOf(emptyList<Int>())
+                val expectedGroups = listOf(listOf<Int>())
                 assertThat(groups, equalTo(expectedGroups))
             }
         }
@@ -77,12 +77,12 @@ object MainSpek : Spek({
     }
 
     given("two empty lists") {
-        val list1 = emptyList<Int>()
-        val list2 = emptyList<Int>()
+        val list1 = listOf<Int>()
+        val list2 = listOf<Int>()
         on("call applyBinaryOperationOverTwoLists on the two lists and a binary operation") {
             val result = applyBinaryOperationOverTwoLists(list1, list2, Int::plus)
             it("should return an empty list") {
-                val expectedResult = emptyList<Int>()
+                val expectedResult = listOf<Int>()
                 assertThat(result, equalTo(expectedResult))
             }
         }
