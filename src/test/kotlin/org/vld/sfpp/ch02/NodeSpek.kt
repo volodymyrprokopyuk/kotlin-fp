@@ -7,7 +7,7 @@ import org.jetbrains.spek.api.dsl.given
 import org.jetbrains.spek.api.dsl.it
 import org.jetbrains.spek.api.dsl.on
 
-object MainSpek : Spek({
+object NodeSpek : Spek({
 
     given("an unorderd list of numbers") {
         val numbers = listOf(72, 50, 25, 65, 95, 88, 112)
