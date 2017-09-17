@@ -31,7 +31,7 @@ apply plugin: "org.jetbrains.dokka"
 
 dokka {
     outputFormat = "html"
-    outputDirectory = "$buildDir/doc"
+    outputDirectory = "$buildDir/dokka"
 }
 
 apply plugin: "application"

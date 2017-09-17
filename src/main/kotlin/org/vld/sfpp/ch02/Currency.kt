@@ -80,7 +80,7 @@ object CurrencyConverter {
         Currency.GBP to Currency.GBP -> PoundConverter.conversionRateToPound
 
         // throw IllegalArgumentException for not supported currencies
-        else -> throw IllegalArgumentException("Conversion rate from $fromCurrency to $toCurrency not defined")
+        else -> throw IllegalArgumentException("Conversion rate from $fromCurrency to $toCurrency is not defined")
     } * amount
 
 }

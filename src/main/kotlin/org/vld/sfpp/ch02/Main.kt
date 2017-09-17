@@ -1,14 +1,12 @@
 package org.vld.sfpp.ch02
 
 fun main(args: Array<String>) {
-    val tree = Node(72)
-    tree.insert(50)
-    tree.insert(25)
-    tree.insert(65)
-    tree.insert(95)
-    tree.insert(88)
-    tree.insert(112)
-    println(tree)
-    val res = tree.traverse()
-    println(res)
+    try {
+        val x5 = Car("BMW", "X5", 2016, hasGps = true, hasAc = true).apply(Car::validate)
+        println(x5)
+        val x0 = Car("BMW", "X0", 1984).apply(Car::validate)
+        println(x0)
+    } catch (ex: IllegalArgumentException) {
+        println("ERROR: ${ex.message}")
+    }
 }
