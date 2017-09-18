@@ -11,7 +11,7 @@ fun <T> listSize(list: List<T>, size: Int = 0): Int =
         else listSize(list.drop(1), size + 1)
 
 /**
- * Retrieves the [nthElement] from the [list] or returns null if the index is out of range
+ * Retrieves the zero-based [nthElement] from the [list] or returns null if the index is out of range
  */
 tailrec
 fun <T> listNthElement(list: List<T>, nthElement: Int): T? = when {
@@ -21,4 +21,18 @@ fun <T> listNthElement(list: List<T>, nthElement: Int): T? = when {
     list.isEmpty() || nthElement >= list.size || nthElement < 0 -> null
     // recursive case: drop the first element from the list and decrement by 1 the Nth element
     else -> listNthElement(list.drop(1), nthElement - 1)
+}
+
+fun main(args: Array<String>) {
+//    val list = listOf(1, 2, 3, 4)
+//    val list = listOf<Int>()
+//    val res = listNthElement(list, 4)
+//    println(res)
+
+    try {
+        val res = Parser.evaluate("1+2+3*4*2")
+        println(res)
+    } catch (ex: IllegalArgumentException) {
+        println("ERROR: ${ex.message}")
+    }
 }
