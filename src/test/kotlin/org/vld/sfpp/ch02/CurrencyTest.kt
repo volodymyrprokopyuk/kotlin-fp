@@ -28,4 +28,5 @@ class CurrencyTest {
                 .isInstanceOf(IllegalArgumentException::class.java)
                 .hasMessage("Conversion rate from UNK to EUR is not defined")
     }
+
 }
