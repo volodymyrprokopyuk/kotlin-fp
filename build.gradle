@@ -22,7 +22,6 @@ apply plugin: "org.junit.platform.gradle.plugin"
 junitPlatform {
     filters {
         engines {
-//            include "spek"
             include "junit-jupiter"
         }
     }
@@ -38,12 +37,14 @@ dokka {
 
 apply plugin: "application"
 
-mainClassName = "org.vld.sfpp.ch02.MainKt"
+mainClassName = "org.vld.sfpp.ch03.MainKt"
 
 ext {
     kotlinVersion = "1.1.4-3"
-    spekVersion = "1.1.4"
     junitJupiterVersion = "5.0.0"
+    assertJVersion = "3.8.0"
+
+    spekVersion = "1.1.4"
     hamkrestVersion = "1.4.2.0"
     mockitoKotlinVersion = "1.5.0"
 }
@@ -54,14 +55,17 @@ repositories {
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
 
-    testCompile "org.jetbrains.spek:spek-api:$spekVersion"
     testCompile("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
-    testCompile "com.natpryce:hamkrest:$hamkrestVersion"
-    testCompile "com.nhaarman:mockito-kotlin:$mockitoKotlinVersion"
+    testCompile "org.assertj:assertj-core:$assertJVersion"
 
-//    testRuntime "org.jetbrains.spek:spek-junit-platform-engine:$spekVersion"
     testRuntime("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
 
+//    testRuntime "org.jetbrains.spek:spek-junit-platform-engine:$spekVersion"
+
+    testCompile "org.jetbrains.spek:spek-api:$spekVersion"
+
+    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+
+    testCompile "com.natpryce:hamkrest:$hamkrestVersion"
 }
