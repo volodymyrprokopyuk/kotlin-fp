@@ -10,7 +10,7 @@ import org.jetbrains.spek.api.dsl.on
 
 object CurrencySpek : Spek({
 
-    given("an amount in EUR") {
+    /*given("an amount in EUR") {
         val eurAmount = 2.0
         on("call CurrencyConverter.convert to USD") {
             val usdAmount = CurrencyConverter.convert(eurAmount, Currency.EUR, Currency.USD)
@@ -19,9 +19,9 @@ object CurrencySpek : Spek({
                 assertThat(expectedUsdAmount, equalTo(usdAmount))
             }
         }
-    }
+    }*/
 
-    given("an amount in an unknown currency (UNK)") {
+    /*given("an amount in an unknown currency (UNK)") {
         val unkAmount = 2.0
         on("call CurrencyConverter.convert to EUR") {
             it("should throw IllegalArgumentException") {
@@ -29,6 +29,6 @@ object CurrencySpek : Spek({
                         throws<IllegalArgumentException>())
             }
         }
-    }
+    }*/
 
 })
