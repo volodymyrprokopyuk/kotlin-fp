@@ -1,6 +1,6 @@
 buildscript {
     ext.kotlinGradlePluginVersion = "1.1.4-3"
-    ext.junitPlatformGradlePluginVersion = "1.0.0-RC3"
+    ext.junitPlatformGradlePluginVersion = "1.0.0"
     ext.dokkaGradlePluginVersion = "0.9.15"
 
     repositories {
@@ -22,9 +22,11 @@ apply plugin: "org.junit.platform.gradle.plugin"
 junitPlatform {
     filters {
         engines {
-            include "spek"
+//            include "spek"
+            include "junit-jupiter"
         }
     }
+    configurationParameters(["junit.jupiter.testinstance.lifecycle.default": "per_class"])
 }
 
 apply plugin: "org.jetbrains.dokka"
@@ -40,8 +42,8 @@ mainClassName = "org.vld.sfpp.ch02.MainKt"
 
 ext {
     kotlinVersion = "1.1.4-3"
-
     spekVersion = "1.1.4"
+    junitJupiterVersion = "5.0.0"
     hamkrestVersion = "1.4.2.0"
     mockitoKotlinVersion = "1.5.0"
 }
@@ -55,8 +57,11 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
 
     testCompile "org.jetbrains.spek:spek-api:$spekVersion"
+    testCompile("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
     testCompile "com.natpryce:hamkrest:$hamkrestVersion"
     testCompile "com.nhaarman:mockito-kotlin:$mockitoKotlinVersion"
 
-    testRuntime "org.jetbrains.spek:spek-junit-platform-engine:$spekVersion"
+//    testRuntime "org.jetbrains.spek:spek-junit-platform-engine:$spekVersion"
+    testRuntime("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
+
 }
