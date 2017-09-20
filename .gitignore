@@ -1,11 +1,11 @@
 # Gradle
-build/
 .gradle/
+build/
 
 # IDEA
 .idea/
-*.iml
 out/
+*.iml
 
 # Emacs
 *~
