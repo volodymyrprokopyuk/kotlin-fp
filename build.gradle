@@ -25,7 +25,6 @@ junitPlatform {
             include "junit-jupiter"
         }
     }
-    configurationParameters(["junit.jupiter.testinstance.lifecycle.default": "per_class"])
 }
 
 apply plugin: "org.jetbrains.dokka"
@@ -52,6 +51,7 @@ repositories {
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     testCompile("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
+    testCompile("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
     testCompile "org.assertj:assertj-core:$assertJVersion"
     testRuntime("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
 }
