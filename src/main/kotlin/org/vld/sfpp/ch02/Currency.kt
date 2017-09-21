@@ -10,7 +10,7 @@ enum class Currency {
 /**
  * Conversion rates from each currency to any other supported currency
  *
- * [ConversionRate] interface is emplemented by every currency converter singleton object
+ * [ConversionRate] interface is implemented by every currency converter singleton object
  */
 interface ConversionRate {
     val conversionRateToEuro: Double
@@ -48,7 +48,7 @@ object CurrencyConverter {
     }
 
     /**
-     * Singleton [ConversionRate] imlementation for [Currency.GBP]
+     * Singleton [ConversionRate] implementation for [Currency.GBP]
      */
     object PoundConverter : ConversionRate {
         override val conversionRateToEuro: Double
