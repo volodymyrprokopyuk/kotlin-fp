@@ -78,4 +78,27 @@ class MainTest {
         assertThat(element).isNull()
     }
 
+    @Test
+    @DisplayName("Given a non-empty list. When listReverse. Then return reversed list")
+    fun givenNonEmptyList_whenListReverse_thenReturnReversedList() {
+        // Given
+        val list = listOf(1, 2, 3, 4)
+        // When
+        val reversedList = listReverse(list)
+        // Then
+        val expectedReversedList = list.reversed()
+        assertThat(reversedList).isEqualTo(expectedReversedList)
+    }
+
+    @Test
+    @DisplayName("Given an empty list. When listReverse. Then return an empty list")
+    fun givenEmptyList_whenListReverse_thenReturnEmptyList() {
+        // Given
+        val list = listOf<Int>()
+        // When
+        val reversedList = listReverse(list)
+        // Then
+        assertThat(reversedList.isEmpty()).isTrue()
+    }
+
 }

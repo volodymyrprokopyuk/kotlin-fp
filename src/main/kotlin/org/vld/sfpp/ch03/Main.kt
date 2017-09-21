@@ -23,6 +23,16 @@ fun <T> listNthElement(list: List<T>, nthElement: Int): T? = when {
     else -> listNthElement(list.drop(1), nthElement - 1)
 }
 
+/**
+ * Reverses the [list]
+ */
+tailrec
+fun <T> listReverse(list: List<T>, reversedList: List<T> = listOf()): List<T> =
+        // base case: if the source list is empty, return the reversed list
+        if (list.isEmpty()) reversedList
+        // recursive case: drop the last element from the source list and append the last element to the reversed list
+        else listReverse(list.dropLast(1), reversedList + list.last())
+
 fun main(args: Array<String>) {
 //    val list = listOf(1, 2, 3, 4)
 //    val list = listOf<Int>()
