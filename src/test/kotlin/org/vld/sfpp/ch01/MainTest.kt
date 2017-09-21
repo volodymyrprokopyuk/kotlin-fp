@@ -28,8 +28,7 @@ class MainTest {
         // When
         val frequency = letterFrequency(string)
         // Then
-        val expectedFrequency = mapOf<Char, Int>()
-        assertThat(frequency).isEqualTo(expectedFrequency)
+        assertThat(frequency.isEmpty()).isTrue()
     }
 
     @Test
@@ -90,8 +89,7 @@ class MainTest {
         // When
         val result = applyBinaryOperationOverTwoLists(list1, list2, Int::plus)
         // Then
-        val expectedResult = listOf<Int>()
-        assertThat(result).isEqualTo(expectedResult)
+        assertThat(result.isEmpty()).isTrue()
     }
 
 }
