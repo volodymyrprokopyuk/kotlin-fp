@@ -34,11 +34,6 @@ fun <T> listReverse(list: List<T>, reversedList: List<T> = listOf()): List<T> =
         else listReverse(list.dropLast(1), reversedList + list.last())
 
 fun main(args: Array<String>) {
-//    val list = listOf(1, 2, 3, 4)
-//    val list = listOf<Int>()
-//    val res = listNthElement(list, 4)
-//    println(res)
-
     try {
         val res = Parser.evaluate("1+2+3*4*2")
         println(res)
