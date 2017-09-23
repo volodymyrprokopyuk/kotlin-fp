@@ -1,5 +1,5 @@
 buildscript {
-    ext.kotlinGradlePluginVersion = "1.1.4-3"
+    ext.kotlinGradlePluginVersion = "1.1.50"
     ext.junitPlatformGradlePluginVersion = "1.0.0"
     ext.dokkaGradlePluginVersion = "0.9.15"
 
@@ -51,7 +51,7 @@ apply plugin: "application"
 mainClassName = "org.vld.sfpp.ch03.MainKt"
 
 ext {
-    kotlinVersion = "1.1.4-3"
+    kotlinVersion = "1.1.50"
     junitJupiterVersion = "5.0.0"
     assertJVersion = "3.8.0"
 }
