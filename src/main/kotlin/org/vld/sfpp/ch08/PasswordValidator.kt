@@ -8,12 +8,12 @@ open class ValidationResult(val isValid: Boolean, val reason: String?) {
 }
 
 /**
- * Password validator accepts a [password] to validate and returns [ValidationResult]
+ * Password validator accepts a password to validate and returns [ValidationResult]
  */
 typealias PasswordValidator = (password: String) -> ValidationResult
 
 /**
- * Composite password validator to validate [password] with multiple password validators
+ * Composite password validator to validate password with multiple password validators
  */
 typealias PasswordValidators = (password: String) -> List<ValidationResult>
 
