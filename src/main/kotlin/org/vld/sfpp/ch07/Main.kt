@@ -58,8 +58,8 @@ fun main(args: Array<String>) {
     val developer = Developer("Developer", listOf(Task("Develop software system"), Task("Test software system")))
 
     // build the team to do a task and produce a result
-    fun handleTask(task: Task): Result?
-            = analyst.handle(task)
+    fun handleTask(task: Task): Result? =
+            analyst.handle(task)
             ?: developer.handle(task)
             ?: architect.handle(task)
             // default task handler
