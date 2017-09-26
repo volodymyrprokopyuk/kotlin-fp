@@ -30,4 +30,23 @@ class MainTest {
         )
     }
 
+    @DisplayName("Given a transform operation and a source list. When listMonad. Then return transformed source list")
+    @ParameterizedTest(name = "{1} -> {2}")
+    @MethodSource("monadSourceListProvider")
+    fun givenTransformAndSource_whenListMonad_thenReturnTransformedSource(
+            transform: (Int) -> List<Int>, source: List<Int>, expectedResult: List<Int>) {
+        // Given & When
+        val result = listMonad(transform, source)
+        // Then
+        assertThat(result).isEqualTo(expectedResult)
+    }
+
+    fun monadSourceListProvider(): Stream<Arguments> {
+        val transform = { element: Int -> listOf(element * 10) }
+        return Stream.of(
+                Arguments.of(transform, listOf<Int>(), listOf<Int>()),
+                Arguments.of(transform, listOf(1, 2, 3, 4), listOf(10, 20, 30, 40))
+        )
+    }
+
 }
