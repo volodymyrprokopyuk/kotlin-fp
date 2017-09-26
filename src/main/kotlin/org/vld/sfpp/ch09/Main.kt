@@ -74,7 +74,7 @@ fun main(args: Array<String>) {
             Pair("Marcin Moskala", "Android Development with Kotlin"),
             Pair("Igor Wojda", "Android Development with Kotlin")
     )
-    val res = buildTitleWordToAuthorInvertedIndex(authorToTitleList);
+    val res = buildTitleWordToAuthorInvertedIndex(authorToTitleList)
     println(res["Kotlin"])
     println(res["Android"])
 }
