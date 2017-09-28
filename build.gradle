@@ -1,7 +1,9 @@
 buildscript {
-    ext.kotlinGradlePluginVersion = "1.1.50"
-    ext.junitPlatformGradlePluginVersion = "1.0.0"
-    ext.dokkaGradlePluginVersion = "0.9.15"
+    ext {
+        kotlinGradlePluginVersion = "1.1.50"
+        junitPlatformGradlePluginVersion = "1.0.0"
+        dokkaGradlePluginVersion = "0.9.15"
+    }
 
     repositories {
         mavenCentral()
